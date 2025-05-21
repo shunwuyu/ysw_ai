@@ -1,0 +1,15 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "- 调用openai llm 接口？ - 命令行调用      - npm init -y - openai 提供了sdk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "openai": "^4.71.1"
+  }
+}
