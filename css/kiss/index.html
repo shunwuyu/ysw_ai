@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  body {
+    background-color: #78e0ef;
+    margin: 0;
+  }
+
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 238px;
+    /* height: 238px; */
+    /* background: pink; */
+    transform: translate(-50%, -50%);
+  }
+
+  .ball {
+    width: 100px;
+    height: 100px;
+    border: 8px solid black;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: white;
+    vertical-align: top;
+    position: relative; /*相对定位，子元素相对它定位*/
+  }
+  .face {
+    width: 70px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    border-top-right-radius: 15px;
+    /* background-color: green; */
+  }
+  .eye {
+    width: 15px;
+    height: 14px;
+    border-radius: 50%;
+    border-bottom: 5px solid black;
+    position: absolute;
+  }
+  .eye-l {
+    left: 10px;
+  }
+  .eye-r {
+    right: 5px;
+  }
+  .eye-r-p {
+    border-top: 5px solid black;
+    border-bottom: 0px;
+  }
+  .mouth {
+    width: 30px;
+    height: 14px;
+    border-radius: 50%;
+    border-bottom: 5px solid black;
+    position: absolute;
+    bottom: -5px;
+    transform: translate(3px);
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="l-ball" class="ball">
+      <div class="face face-l">
+        <div class="eye eye-l"></div>
+        <div class="eye eye-r"></div>
+        <div class="mouth"></div>
+      </div>
+    </div>
+    <div id="r-ball" class="ball">
+      <div class="face face-r">
+        <div class="eye eye-l eye-r-p"></div>
+        <div class="eye eye-r  eye-r-p"></div>
+        <div class="mouth mouth-r"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
