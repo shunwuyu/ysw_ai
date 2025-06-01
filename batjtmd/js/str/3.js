@@ -1,3 +1,4 @@
+// 包装类
 let a = "abc";
 let b = new String("abc");
 console.log(a == b) // 值
