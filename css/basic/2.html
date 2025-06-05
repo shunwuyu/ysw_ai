@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  h1 + p {
+    color: red;
+  }
+  h1 ~ p {
+    color: blue;
+  }
+  .container > p {
+    font-weight: bold;
+  } 
+  .container p {
+    text-decoration: underline;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>标题之前的段落</p>
+    <h1>标题</h1>
+    <p>这是第一段文字</p>
+    <p>这是第二段文字</p>
+    <a href="#">链接</a>
+    <span>这是一个span元素</span>
+    <div class="inner">
+      <p>这是内部段落</p>
+    </div>
+  </div>
+</body>
+</html>
