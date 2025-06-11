@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio 音乐</title>
+</head>
+<body>
+  <audio src="./sounds/snare.wav"></audio>
+  <button id="play">播放</button>
+  <button onclick="alert('你还好吗？')">更原始的事件，如初恋般</button>
+  <script>
+  const oAudio = document.querySelector('audio');
+  document.getElementById('play').addEventListener('click', () => {
+    oAudio.play()
+  })
+  </script>
+</body>
+</html>

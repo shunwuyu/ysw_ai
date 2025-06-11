@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数中的this</title>
+</head>
+<body>
+<script>
+var name = "windowsName";
+var a = {
+  name: "Tom",
+  func1: function() {
+    console.log(this.name)
+  },
+  func2: function() {
+    // this -> a
+    setTimeout(function() {
+      // this 没有 该省都省 
+      this.func1();
+    }, 1000)
+  }
+}
+a.func2();
+</script>
+</body>
+</html>

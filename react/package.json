@@ -1,0 +1,12 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "friends 数据 App 挂载点 页面的显示 - 原生JS   DOM 编程   底层API 不够高效   聚焦于业务   前端切图崽（html,css + 一点js）-》 前端开发工程师（微博，美团）JS框架（vue/react ）-> node 全栈开发 （node + 数据库）-> react native Android + ios App -> AIGC AI应用 -》  全干工程师   Web 应用（www.baidu.com）  移动应用(Android,IOS)    Node (server)   AI 统领一切 JS AI全干工程师",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
