@@ -1,0 +1,79 @@
+$weui-bg-0 = #ededed
+$weui-bg-2 = #fff
+$weui-fg-1 = rgba(0,0,0,0.55)
+$weui-fg-2 = rgba(0,0,0,0.3)
+$weui-fg-3 = rgba(0,0,0,0.1)
+
+*
+  margin 0
+  padding 0
+
+.page
+  position absolute
+  top 0
+  right 0
+  left 0
+  bottom 0
+  background-color $weui-bg-0
+  overflow scroll
+  -webkit-overflow-scrolling touch
+  box-sizing border-box
+  z-index 1
+  .page__hd
+    padding 40px
+  .page__title
+    text-align left
+    font-size 20px
+    font-weight 400
+  .page__desc
+    margin-top 4px
+    color $weui-fg-1
+    text-align left
+    font-size 14px
+
+.weui-cells
+  margin-top 8px
+  background-color $weui-bg-2
+  position relative
+  overflow hidden
+  &::before
+    content ""
+    position absolute
+    left 0
+    right 0
+    height 1px
+    background-color $weui-fg-3
+    z-index 2
+.weui-cell
+  padding 16px
+  position relative
+  display flex
+  align-items center
+  line-height 1.41176471
+  .weui-cell__bd
+    flex 1
+.weui-cell_uploader
+  padding-bottom 24px
+.weui-uploader
+  .weui-uploader__hd
+    display flex
+    padding-bottom 12px
+    align-items center
+    .weui-uploader__title
+      flex 1
+    .weui-uploader__info
+      color $weui-fg-2
+  .weui-uploader__bd
+    margin-bottom -8px
+    margin-right -8px
+    overflow hidden
+  .weui-uploader__files
+    list-style none
+    .weui-uploader__file
+      float left
+      margin-right 8px
+      margin-bottom 8px
+      width 96px
+      height 96px
+      background url(https://weui.io/images/pic_160.png) no-repeat 50%
+      background-size cover

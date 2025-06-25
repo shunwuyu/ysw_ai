@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>call apply bind 霸道一些，指定函数内部的this </title>
+</head>
+<body>
+<script>
+var a = {
+  name: "武依微",
+  func1: function() {
+    console.log(this.name);
+  },
+  func2: function() {
+    setTimeout(function () {
+      // 假如this 可以被指定？
+      this.func1();
+    }.apply(a), 1000)
+  }
+  // func2: function() {
+  //   console.log(this)
+  //   // 作用域链
+  //   setTimeout(() => {
+  //     // 没有this , arguments 都没有
+  //     this.func1();
+  //   }, 1000)
+  // }
+  // func2: function() {
+  //   // this 的丢失 作用域链
+  //   console.log(this);
+  //   var _this = this;
+  //   setTimeout(function () {
+  //     console.log(this);
+  //     _this.func1();
+  //   }, 1000)
+  // }
+}
+// console.log(a.func2.prototype);
+a.func2();
+
+</script>
+</body>
+</html>

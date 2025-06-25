@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+// console.log(Function.prototype, Function.__proto__)
+function gretting(...args) {
+  console.log(args, arguments[0], arguments[1]);
+  // console.log([...arguments], Array.from(arguments));
+  return `hello , I am ${this.name}.`;
+}
+// ...args  rest 运算符
+Function.prototype.myCall = function(context, ...args) {
+  console.log('////')
+  if (context === null || context === undefined) {
+    context = window;
+  }
+  // this? greeting
+  console.log(this);
+  if (typeof this !== 'function') {
+    throw new TypeError('Function.prototype.myCall called on non-function')
+  }
+  // 函数要运行
+  // es6 新数据类型 唯一绝对不会重复
+  const fnKey = Symbol('fn');
+  // this 运行 内部this -> context
+  // this 是 context 上面的方法的时候
+  // 不要覆盖 context 上面的属性
+  context[fnKey] = this;
+  // console.log(context);
+  // 收集参数
+  // console.log(args)
+  // js对象的动态性
+  const result = context[fnKey](...args);
+  // context 被污染了 ，删除属性
+  delete context[fnKey];
+  return result;
+}
+var obj = {
+  name: '刘老板',
+  fn: function() {
+
+  }
+}
+// 对象的方法调用？
+console.log(gretting.myCall(obj, 1, 2, 3));
+</script>
+</body>
+</html>

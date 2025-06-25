@@ -1,0 +1,29 @@
+.container
+  max-width 600px
+  margin 0 auto 
+  padding 20px
+  font-family Arial, sans-serif
+  h1
+    text-align center
+  p
+    line-height 1.6
+  .more
+    background-color #007bff
+    color white
+    text-decoration none
+    position relative
+    transition all .3s ease
+    &::before
+      content ""
+      position absolute
+      bottom 0
+      left 0
+      width 100%
+      height 2px
+      background-color red
+      transform scaleX(0)
+      transform-origin bottom right
+      transition transform .3s ease
+    &:hover::before
+      transform scaleX(1)
+      transform-origin bottom right

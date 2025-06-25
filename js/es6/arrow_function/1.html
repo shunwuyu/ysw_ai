@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this指向</title>
+</head>
+<body>
+<script>
+// "use strict";
+var name = '卢老板'
+function fn() {
+  var name = '李老板'
+  console.log(this.name);
+}
+// fn(); // 普通函数
+// window.fn(); // 不好 
+
+let obj = {
+  name: '王心志',
+  fn: function() {
+    console.log(this.name);
+  }
+}
+// method 
+obj.fn();
+// 最后指向
+const fn2 = obj.fn;
+fn2(); // 
+</script>
+</body>
+</html>

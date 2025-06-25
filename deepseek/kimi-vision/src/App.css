@@ -1,0 +1,5 @@
+.container { display: flex; flex-direction: column; align-items: start; justify-content: start; height: 100vh; font-size: .85rem;}
+.input { width: 200px;}
+.output { margin-top: 10px; min-height: 300px; width: 100%; text-align: left;}
+.preview img { max-width: 100%;}
+button { padding: 0 10px; margin-left: 6px;}

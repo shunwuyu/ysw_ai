@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS 请求</title>
+ 
+</head>
+<body>
+<ul id="repos"></ul>
+<script>
+  // 阻塞
+  // window.onload 有点晚
+document.addEventListener('DOMContentLoaded', async () => {
+  // console.log(document.getElementById('repos'));
+  // then 的链式调用有点繁琐
+  // es6 
+  // fetch('https://api.github.com/users/shunwuyu/repos')
+  //   .then(res => res.json())
+  //   .then(data => {
+      // console.log(json);
+    //   document.getElementById('repos').innerHTML = data.map(item => `<li>${item.name}</li>`).join('')
+    // })
+    // 同步代码一样 
+    // es8 async await 
+    // await promise 实例
+    // new Promise Promise {} fetch本质是 返回 promsie 实例
+    // pending 状态 等待 
+    console.log(fetch('https://api.github.com/users/shunwuyu/repos'))
+    // resolve() fullfilled 完成了 
+    // reject() rejected 失败
+    const result = await fetch('https://api.github.com/users/shunwuyu/repos')
+    const data = await result.json()
+    // console.log(data);
+    document.getElementById('repos').innerHTML = data.map(item => `<li>${item.name}</li>`).join('')
+});
+</script>
+<script>
+
+// api 接口地址
+// www.bilibili.com 网站地址， 用户访问的 
+// https://api.github.com/users/shunwuyu url 
+// - JSON格式 数据返回
+//   后端 node, java, go 开发
+// - 资源·
+// 前端
+// - 通过js fetch 主动拉取资源  
+// 前端 自己做主
+// - web 2.0 动态页面 
+</script>
+</body>
+</html>

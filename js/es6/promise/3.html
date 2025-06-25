@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+<ul id="repos"></ul>
+<button type="button" id="btn">加载</button>
+<script>
+// 异步任务 网络请求
+// 事件 网页加载的一个事件 资源加载完了
+document.getElementById('btn').addEventListener('click', () => {
+  console.log('clicked');
+})
+window.onload = function() {
+  console.log('onload')
+}
+// 异步任务 
+// 申明函数是async函数 
+document.addEventListener('DOMContentLoaded', async () => {
+  // console.log('DOMContentLoaded');
+  // DOM ready 了， 可以尽快发送请求
+  // 执行的流程
+  // await 等到右边的异步任务执行完， 异步变同步 
+  const res = await fetch('https://api.github.com/users/WildBlue58/repos') // 请求完成
+  const data = await res.json() // 解析JSON 完成
+    // .then(data => { // JSON 数据 
+      console.log(data);
+    document.getElementById('repos').innerHTML = data.map(item => {
+        return `<li>
+          <a href="${item.html_url}" target="_blank">${item.name}</a>
+        </li>`
+      }).join('')
+})
+
+</script>
+</body>
+</html>

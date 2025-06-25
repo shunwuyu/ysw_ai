@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>伪元素有何用？</title>
+  <style>
+  .box {
+    height: 100px;
+    background-color: #ccc;
+    /* text-align: right; */
+    /* line-height: 100px; */
+    padding: 0 10px;
+    /* font-size: 20px; */
+    /* color:white; */
+    position: relative;
+  }
+  .box::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    right: 10px;
+    top: 45px;
+    border: 1px solid black;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotate(45deg);
+  } 
+  </style>
+</head>
+<body>
+  <div class="box">
+    <!-- &gt; -->
+  </div>
+</body>
+</html>

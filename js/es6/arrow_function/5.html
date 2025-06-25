@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+var a = {
+  name: '小公主',
+  fn: function(a, b) {
+    console.log(this.name);
+    console.log(a, b)
+  }
+}
+// a.fn(1, 2)
+const b = a.fn 
+//函数对象原型上的方法
+// 指定this的指向
+b.call(a, 1, 2)
+b.apply(a, [1, 2])
+// 延迟执行
+const func2 = b.bind(a, 1, 2)
+func2();
+</script>
+</body>
+</html>
