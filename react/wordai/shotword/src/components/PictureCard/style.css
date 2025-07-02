@@ -1,0 +1,9 @@
+#selectImage {
+  display: none;
+}
+.input {
+  width: 200px;
+}
+.preview img {
+  max-width: 100%;
+}

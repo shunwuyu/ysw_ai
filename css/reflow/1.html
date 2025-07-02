@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>table 布局，不推荐</title>
+  <style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  .sidebar {
+    width: 20%;
+    background-color: #f0f0f0;
+  }
+  .main {
+    width: 60%;
+    background-color: #e0e0e0;
+  }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td class="sidebar">左侧边栏</td>
+      <td class="main">主侧内容</td>
+      <td class="sidebar">右侧边栏</td>
+    </tr>
+
+  </table>
+</body>
+</html>
