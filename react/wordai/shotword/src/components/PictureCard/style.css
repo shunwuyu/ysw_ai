@@ -1,9 +1,38 @@
-#selectImage {
+#selecteImage {
   display: none;
 }
-.input {
-  width: 200px;
+.card {
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 40px;
+  height: 280px;
+  box-shadow: rgb(63,38,21) 0 3px 0px 0;
+  background-color: rgb(105,78,62);
+  box-sizing: border-box;
 }
-.preview img {
-  max-width: 100%;
+.upload {
+  width: 160px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.word {
+  margin-top: 20px;
+  font-size: 16px;
+  color: rgb(255,255,255);
+}
+.playAudio {
+  margin-top: 16px;
+}
+
+.playAudio img {
+  cursor: pointer;
 }

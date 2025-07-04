@@ -1,11 +1,100 @@
 .container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  margin: 0;
+  padding: 0;
   width: 100vw;
   height: 100vh;
-  /* 用渐变色来代替jpg,png 背景图片做背景，比单一色又更艺术
-  http 请求，浏览器的下载线程 
-  color stop color + 百分比
-  deg 顺时针
-  */
-  background:linear-gradient(180deg, rgb(235, 189, 161) 0%, rgb(71, 49, 32) 100%);
+  font-size: .85rem;
+  background: linear-gradient(180deg, rgb(235, 189, 161) 0%, rgb(71, 49, 32) 100%);
+}
+
+#selecteImage {
+  display: none;
+}
+
+.input {
+  width: 200px;
+}
+
+.output {
+  margin-top: 20px;
+  /* min-height: 300px; */
+  width: 80%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.preview img {
+  max-width: 100%;
+}
+
+button {
+  padding: 0 10px;
+  margin-left: 6px;
+}
+
+.details {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.details button {
+  background-color: black;
+  color: white;
+  width: 160px;
+  height: 32px;
+  border-radius: 8px 8px 0 0;
+  border: none;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.details .fold {
+  width: 200px;
+  height: 30px;
+  background-color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.details .expand {
+  width: 200px;
+  height: 88vh;
+  background-color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.expand img {
+  width: 60%;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+
+.expand .explaination {
+  color: black;
+  font-weight: normal;
+}
+
+.expand .explaination p {
+  margin: 0 10px 10px 10px;
+}
+
+.expand .reply {
+  color: black;
+  font-weight: normal;
+  margin-top: 20px;
+}
+
+.expand .reply p {
+  padding: 4px 10px;
+  margin: 0 10px 10px 10px;
+  border-radius: 6px;
+  border: solid 1px grey;
 }
