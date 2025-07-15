@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>微任务</title>
+</head>
+<body>
+<script>
+console.log("同步");
+// 批量更新
+// dom 树， cssom, layout 树  图层合并
+queueMicrotask(() => {
+  // DOM 更新了， 但不是渲染完了
+  // 一个元素的高度  offsetHeight scrollTop getBoundingClientRect() 
+  // 立即重绘重排 耗性能
+  console.log('微任务：queueMicrotask')
+})
+console.log("同步结束");
+</script>
+</body>
+</html>

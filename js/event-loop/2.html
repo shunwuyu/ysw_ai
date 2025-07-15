@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>微任务</title>
+</head>
+<body>
+<script>
+// event loop 是JS 执行机制，也是代码执行的开始
+// html 是第一个BFC 块级格式化上下文 
+const target = document.createElement('div');
+document.body.appendChild(target);
+const observer = new MutationObserver(() => {
+  console.log('微任务: MutaionObserver');
+})
+// 监听target 节点的变化
+observer.observe(target, {
+  attributes: true,
+  childList: true
+})
+
+target.setAttribute('data-set', '123');
+target.appendChild(document.createElement('span'));
+target.setAttribute('style', 'background-color: green;');
+</script>
+</body>
+</html>

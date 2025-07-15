@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<input type="text" id="inputC" />
+<script>
+let inputC = document.getElementById('inputC');
+const ajax = function(content) { // 被节流的函数
+  // fetch 
+  // XMLHttpRequest
+  console.log('ajax request ' + content)
+}
+
+function throttle(fn, delay) {
+  let last,// 上一次的执行时间
+    deferTimer;// timeout id 
+
+  return function (...args) {
+    let that = this; // 闭包的应用场景
+    let now = + new Date(); // 类型转换
+    // let args = arguments;
+    if (last && now < last + delay) {
+      clearTimeout(deferTimer);
+      deferTimer = setTimeout(function() {
+        last = now;
+        fn.apply(that, args)
+      }, delay)
+    } else {
+      last = now;
+      fn.apply(that, args);
+    }
+  }
+}
+
+let throttleAjax = throttle(ajax, 2000);
+inputC.addEventListener('keyup', function(e) {
+  throttleAjax(e.target.value);
+})
+</script>
+</body>
+</html>
