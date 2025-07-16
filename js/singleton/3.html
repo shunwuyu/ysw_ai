@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal 登录弹窗单例</title>
+    <style>
+    #modal {
+        height: 200px;
+        width: 200px;
+        line-height: 200px;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid #000;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <!-- <div class="box" style="display:none">
+
+    </div> -->
+    <button id="open">打开弹窗</button>
+    <button id="close">关闭弹窗</button>
+    <button id="open2">打开天窗</button>
+    <script>
+    // DOM 
+    // 推迟到登录的时刻
+    // 单例
+    const Modal = (function() {
+        let modal = null;
+
+        return function() {
+            if (!modal) { // 第一次和唯一一次
+                modal = document.createElement('div');
+                modal.innerHTML = '我是一个全局唯一的Modal';
+                modal.id = 'modal';
+                modal.style.display = 'none';
+                document.body.appendChild(modal);
+            }
+            return modal;
+        }
+    })()
+    document.getElementById('open').addEventListener('click', function() {
+        const modal = new Modal();
+        modal.style.display = 'block';
+    })
+    document.getElementById('open2').addEventListener('click', function() {
+        const modal = new Modal();
+        modal.style.display = 'block';
+    })
+
+    document.getElementById('close').addEventListener('click', function() {
+        const modal = new Modal();
+        modal.style.display = 'none';
+    })
+    // new Modal();
+    </script>
+</body>
+</html>

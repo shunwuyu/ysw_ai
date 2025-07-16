@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档碎片</title>
+</head>
+<body>
+<ul id="list"></ul>
+<script>
+const items = [
+    {
+      id:1,
+      title: '标题1',
+      content: '内容1'
+    },
+    {
+      id:2,
+      title: '标题2',
+      content: '内容'
+    }
+  ]
+
+const container = document.getElementById('list');
+// const oDiv = document.createElement('div');
+// 性能优化，文档碎片 
+const fragment = document.createDocumentFragment();
+
+items.forEach(item => {
+    const wrapper = document.createElement('div');
+    const title = document.createElement('h3');
+    const desc = document.createElement('p');
+    title.textContent = item.title;
+    desc.textContent = item.content;
+    wrapper.appendChild(title);
+    wrapper.appendChild(desc);
+    fragment.appendChild(wrapper);
+})
+// 批量挂载更新，减少重排重绘次数
+container.appendChild(fragment);
+</script>  
+</body>
+</html>
