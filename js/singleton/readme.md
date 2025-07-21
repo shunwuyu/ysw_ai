@@ -18,7 +18,7 @@ setItem(kye.value) 和getItem(key)
 - 性能特别好， 好管理
 
 
-# 单例模式
+## 单例模式
 
 - 实现一个登录弹窗
     - 体验

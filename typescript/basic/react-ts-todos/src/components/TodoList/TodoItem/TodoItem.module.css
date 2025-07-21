@@ -1,0 +1,14 @@
+/* src/styles/TodoItem.module.css */
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+.del {
+    background: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+}
+  

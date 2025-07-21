@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history SPA</title>
+</head>
+<body>
+    <h2>SPA路由模拟</h2>
+    <button onclick="navigate('/home')">首页</button>
+    <button onclick="navigate('/about')">关于</button>
+    <button onclick="navigate('/contact')">联系</button>
+    <button onclick="navigate('/login')">登录</button>
+    <button onclick="replace('/pay')">支付</button>
+    <a href="https://www.zhihu.com">知乎</a>
+    <div id="view">当前试图</div>
+    <script>
+    function render(path) {
+        document.getElementById('view').textContent = `当前试图: ${path}`
+    }
+
+    function replace(path) {
+        history.replaceState({path}, '', path);
+        render(path);
+    }
+    function navigate(path) {
+    // url 含义，持有数据状态 state 
+        // 入history 栈，不更新
+        history.pushState({path}, '', path)
+        render(path);
+    }
+    // 监听浏览器前进/后退事件
+    window.addEventListener('popstate', (event) => {
+        console.log('pop state fired:', event.state);
+        render(event.state?.path || location.pathname)
+    })
+    </script>
+</body>
+</html>
