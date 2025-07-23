@@ -14,4 +14,5 @@
     ...
 </ul>
 - JSX -> React.createElement(tag, props, children)->
-    document.createElment(tag)
+    document.createElment('ul')
+        document.createElment('li')

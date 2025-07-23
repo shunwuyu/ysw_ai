@@ -19,5 +19,7 @@
         -D 开发阶段的依赖 dev 
         上线后是不用的 
     - ./node_modules/.bin/babel 
+        转换的规则 
+        react -> IOS 代码 
         es6+ -> es5 
         JSX -> React.createElement
