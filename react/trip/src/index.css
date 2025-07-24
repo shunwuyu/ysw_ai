@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;/*盒子模型 */
+}
+
+/* 去除列表默认样式 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 去除表格边框合并问题 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 清除图片默认间距 */
+img {
+  display: block;
+  border: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 设置默认字体和抗锯齿 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 清除链接默认样式 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 去除按钮默认样式 */
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* 清除 input 默认样式 */
+input,
+textarea {
+  outline: none;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* 清除 HTML5 新标签默认样式 */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* 避免文字换行异常 */
+body,
+button,
+input,
+select,
+textarea {
+  word-wrap: break-word;
+  word-break: break-all;
+}
