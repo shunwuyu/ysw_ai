@@ -1,0 +1,28 @@
+.chatArea {
+    overflow-y: auto;
+    padding: 12px;
+    background-color: #f7f8fa;
+}
+.inputArea {
+    padding: 16px;
+    border-top: 1px solid #ddd;
+    background: white;
+}
+.input {
+    margin-right: 8px;
+}
+.messageLeft, .messageRight {
+    max-width: 70%;
+    padding: 8px 12px;
+    margin: 12px 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+} 
+.messageLeft {
+    background-color: #fff;
+}
+.messageRight {
+    background-color: #4fc08d;
+    color:white;
+    margin-left: 30%;
+}
