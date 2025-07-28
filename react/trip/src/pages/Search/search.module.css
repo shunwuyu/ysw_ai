@@ -1,0 +1,21 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    overflow: hidden;
+    background: #f2f3f4;
+}
+.list {
+    position: absolute;
+    top: 80px;
+    background: white;
+    bottom: 0;
+    width: 100%;
+}
+.item {
+    font-size: 24px;
+    padding: 20px 10px;
+}

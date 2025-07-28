@@ -1,7 +1,21 @@
 .wrapper {
     display: flex;
     align-items: center;
-    padding: 0 12px;
-    
-
+    padding: 0 40px 0 12px;
+    height: 80px;
+    background: #eee;
+}
+.ipt {
+    flex: 1;
+    margin: 0 5px;
+    line-height: 36px;
+    background: #eee;
+    color: #333;
+    font-size: 28px;
+    outline:none;
+    border: none;/*原生的input有点难看*/
+    border-bottom: 1px solid #e4e4e4;
+}
+.box:placeholder {
+    color:#1f1f1f;
 }
