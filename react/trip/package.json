@@ -13,6 +13,7 @@
     "@react-vant/icons": "^0.1.0",
     "axios": "^1.11.0",
     "lib-flexible": "^0.3.2",
+    "mockjs": "^1.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.7.0",

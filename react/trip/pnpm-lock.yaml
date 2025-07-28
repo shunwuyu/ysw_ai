@@ -17,6 +17,9 @@ importers:
       lib-flexible:
         specifier: ^0.3.2
         version: 0.3.2
+      mockjs:
+        specifier: ^1.1.0
+        version: 1.1.0
       react:
         specifier: ^18.3.1
         version: 18.3.1
