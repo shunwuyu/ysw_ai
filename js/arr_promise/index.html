@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+const getRepos = function(id) {
+    return new Promise((resolve, reject) => {
+        try {
+            setTimeout(() => {
+                resolve({id})
+            }, 2000)
+        } catch(err) {
+            reject(err)
+        }
+    })
+}
+// 批量异步任务
+;(async() => {
+    const allPromises = [
+        getRepos('LeeAt67'), 
+        getRepos('shunwuyu')
+    ];
+    Promise.all(allPromises)
+        .then(data => {
+            console.log(data);
+        })
+    // const res = []
+    // res[0] = await getRepos('LeeAt67');
+    // res[1] =  await getRepos('shunwuyu');
+    // console.log(res);
+})()
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #demo {
+        border: 1px solid red;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="demo"></canvas>
+    <script>
+    let canvas = document.getElementById('demo');
+    let ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'red';
+    ctx.fillRect(0, 0, 300, 150); // 画了个方形
+    ctx.clearRect(20, 20, 100, 50);//黑板擦
+    let dis = 0;
+    function animation() {
+        // 浏览器的刷帧率来频繁执行 1s 60帧
+        requestAnimationFrame(function() {
+            ctx.clearRect(0, 0, 300, 150);
+            ctx.fillStyle = `rgba(${dis++}, 0, 0)`;
+            ctx.fillText(dis++, 110, 90);
+            ctx.font = '50px Verdana',
+            animation();
+            if (dis >= 255) {
+                dis = 0;
+            }
+        })
+    }
+    animation();
+    </script>
+</body>
+</html>

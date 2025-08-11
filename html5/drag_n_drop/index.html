@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag N Drop</title>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        background-color: steelblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+    }
+    .empty {
+        height: 150px;
+        width: 150px;
+        margin: 10px;
+        border: 3px solid #000;
+        background: white;
+    }
+    .fill {
+        background-image: url('https://img1.baidu.com/it/u=400864332,910444934&fm=253&fmt=auto&app=138&f=JPEG?w=514&h=500');
+        background-size: cover;
+        width: 145px;
+        height: 145px;
+        cursor: pointer;
+    }
+    .hold {
+        border: 5px solid #ccc;
+    }
+    .hovered {
+        background-color:#333;
+        border-color: white;
+        border-style: dashed;
+    }
+    /* 自适应  
+        媒体查询
+        媒体（介）选择  超大环绕屏  PC电脑, IPAD , 手机， 
+    */
+    @media (max-width: 800px) {
+        /* 什么媒体上生效  小尺寸 移动端  */
+        body {
+            flex-direction: column;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- <img src="https://img2.baidu.com/it/u=1272955065,2536996928&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=547" alt=""> -->
+    <div class="empty">
+        <!-- 可以拖拽 -->
+        <div class="fill" draggable="true"></div>
+    </div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <script>
+    const fill = document.querySelector('.fill');
+    const empties = document.querySelectorAll('.empty');
+    const body = document.body;
+    // 冒泡机制 事件委托
+    body.addEventListener('dragstart', dragStart);
+    body.addEventListener('dragend', dragEnd);
+    
+    for (const empty of empties) {
+        empty.addEventListener('dragover', dragOver);
+        empty.addEventListener('dragenter', dragEnter);
+        empty.addEventListener('dragleave', dragLeave);
+        empty.addEventListener('drop', drop);
+    }
+
+    function dragStart(e) {
+        if (!e.target.classList.contains('fill')) {
+            e.preventDefault(); // 默认行为
+            return
+        }
+        fill.className += ' hold'
+        setTimeout(() => fill.className='invisible', 0)
+    }
+
+    function dragEnd(event) {
+        fill.className = 'fill'
+    }
+    function dragOver(e) {
+        e.preventDefault();
+    }
+    function dragEnter() {
+        e.preventDefault();
+        this.className += 'hovered';
+    }
+    function dragLeave() {
+        this.className = 'empty';
+    }
+    function drop() {
+        this.className = 'empty';
+        this.append(fill);
+    }
+    </script>
+</body>
+</html>

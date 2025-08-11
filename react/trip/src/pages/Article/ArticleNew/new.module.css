@@ -1,0 +1,61 @@
+.container {
+    padding: 40px;
+    height: 100vh;
+    background-color: #eee;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 32px;
+    margin-bottom: 64px;
+    font-size: 32px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .save {
+    background-color: #f0ad4e;
+    color: white;
+  }
+  
+  .publish {
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  .textareaWrapper {
+    position: relative;
+    margin-bottom: 64px;
+  }
+  
+  .textarea {
+    min-height: 400px;
+    resize: vertical;
+    width: 100%;
+    padding-right: 80px; /* 给麦克风按钮预留空间 */
+    margin-bottom: 0;
+  }
+  
+  .micButton {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 8px;
+  }

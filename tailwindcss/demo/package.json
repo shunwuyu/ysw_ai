@@ -1,5 +1,5 @@
 {
-  "name": "trip",
+  "name": "demo",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,16 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-vant/icons": "^0.1.0",
-    "axios": "^1.11.0",
-    "lib-flexible": "^0.3.2",
-    "mitt": "^3.0.1",
-    "mockjs": "^1.1.0",
+    "@tailwindcss/vite": "^4.1.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.7.0",
-    "react-vant": "^3.3.5",
-    "zustand": "^5.0.6"
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
@@ -31,10 +25,7 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.12",
     "globals": "^15.9.0",
-    "jwt": "^0.2.0",
-    "postcss": "^8.5.6",
-    "postcss-pxtorem": "^6.1.0",
-    "vite": "^5.4.8",
-    "vite-plugin-mock": "^3.0.2"
-  }
+    "vite": "^5.4.8"
+  },
+  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39"
 }

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="box"></div>
+<script>
+// 单线程 
+// html5 启动一个新线程 同步执行
+const worker = new Worker('./worker.js');
+// 通过消息机制 将任务派给worker线程 
+worker.postMessage('hello');
+worker.addEventListener('message', e => {
+    console.log(e.data);
+})
+</script>
+</body>
+</html>

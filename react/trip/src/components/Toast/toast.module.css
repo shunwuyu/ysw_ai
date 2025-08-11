@@ -1,0 +1,43 @@
+.toastWrapper {
+    position: fixed;
+    bottom: 120px;
+    right: 20px;
+    background-color: #1890ff;
+    border-radius: 16px;
+    color:white;
+    padding: 16px 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    font-size: 24px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.toastItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .toastArrow {
+    position: absolute;
+    bottom: -12px;
+    right: 32px;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #1890ff;
+  }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

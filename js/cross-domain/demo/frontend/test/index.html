@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root" class="container"></div>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.4.37/vue.global.min.js"></script> -->
+    <script>
+    function callback(data) {
+      console.log(data);
+      console.log(data.msg);
+    }
+    </script>
+    <script src="http://localhost:8080/api/hello"></script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
