@@ -36,3 +36,7 @@
     git add . 提交到暂存区
     git commit -m '' 提交到仓库
     git push origin main 提交到远程仓库
+
+- 场景
+    - 回退
+    git restore --staged algorithm/readme.md
