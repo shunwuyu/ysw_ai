@@ -43,3 +43,4 @@
   - Coplit 协助编程
 
 - git 版本控制
+  git add
