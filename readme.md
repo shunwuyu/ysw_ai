@@ -43,3 +43,6 @@
   - Coplit 协助编程
 
 - git 版本控制
+- 处理pr
+- 自动合并
+- review等
