@@ -33,7 +33,7 @@ function App() {
     })
 
     const onMessageReceived = (e) => {
-      console.log(e, '来自主线程');
+      // console.log(e, '来自主线程');
       switch(e.data.status) {
         case 'initiate':
           // llm ready 了吗？
@@ -62,6 +62,12 @@ function App() {
         case 'ready':
           setReady(true);
         break;
+        case 'complete':
+          setDisabled(false);
+          const blobUrl = URL.createObjectURL(e.data.output);
+          // console.log(blobUrl);
+          setOutput(blobUrl);
+        break;
       }
     }
     worker.current.onmessage = onMessageReceived;
@@ -74,7 +80,7 @@ function App() {
   const handleGenerateSpeech = () => {
     setDisabled(true);
     worker.current.postMessage({
-      text,
+      text: text,
       speaker_id: selectedSpeaker
     });
   }
@@ -129,7 +135,10 @@ function App() {
             rows="4"
             placeholder='Enter text here'
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => {
+              console.log(e.target.value);
+              setText(e.target.value)
+            }}
           >
           </textarea>
         </div>

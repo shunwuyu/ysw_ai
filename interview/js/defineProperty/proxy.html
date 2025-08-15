@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy</title>
+</head>
+<body>
+    <div id="container">1</div>
+    <button id="button" type="button">点击加1</button>
+    <button id="loginBtn" type="button">登录</button>
+    <script>
+    let data = {
+            value: 1,
+            isLogin:false
+    };
+
+    function updateView() {
+        document.getElementById('container').textContent = data.value;
+        document.getElementById('loginBtn').innerText = '登出'
+    }
+    // Proxy 代理对象
+    // 代理授权
+    // 一次性代理整个的对象
+    const reactiveData = new Proxy(data, {
+        // 代理的行为
+        set(target, key, value, receiver) {
+            // 修改原始数据
+            target[key] = value;
+
+            // 自动更新视图（这里可以更智能地做依赖收集）
+            console.log(`属性 ${key} 被设置为:`, value);
+            updateView();
+
+            return true;
+        },
+        get(target, key, receiver) {
+            console.log(`读取属性 ${key}:`, target[key]);
+            return target[key];
+        }
+    });
+
+    document.getElementById('button').addEventListener('click', function() {
+        reactiveData.value += 1; // 触发 set，自动更新视图
+    });
+    document.getElementById('loginBtn').addEventListener('click', function(){
+        reactiveData.isLogin = true;
+    })
+    </script>
+</body>
+</html>
