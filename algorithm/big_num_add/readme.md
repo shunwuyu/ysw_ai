@@ -10,6 +10,7 @@
   -Infinity
   Number.MAX_VALUE
 - 字符串化
+- 注意 普通number 不能和 bigint 一起运算
 
 - es6 bigInt 大数类型
 
