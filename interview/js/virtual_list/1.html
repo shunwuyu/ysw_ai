@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="container"></ul>
+    <script>
+    let now = Date.now();
+    const total = 100000;
+    let ul = document.getElementById('container');
+    for (let i = 0; i < total; i++) {
+        let li = document.createElement('li');
+        li.innerText = Math.random() * total;
+        ul.appendChild(li);
+    }
+    // JS同步  -》 微任务队列-》 页面渲染响应-》 宏任务
+    console.log('JS 运行时间', Date.now() - now);
+    setTimeout(() => {
+        console.log('总运行时间', Date.now() - now);
+    }, 0)
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Fiber</title>
+    <style>
+    #status {
+        margin: 20px 0;
+    }
+    #progress {
+        width: 100%;
+        height: 20px;
+        border: 1px solid #ccc;
+    }
+    #bar {
+        height: 100%;
+        width: 0%;
+        background-color: #4caf50;
+        transition: width 0.1s;
+    }
+    button {
+        padding: 10px;
+        margin: 10px 0;
+    }
+    </style>
+</head>
+<body>
+<h1>requestIdleCallback</h1>
+<p>
+    requestIdleCallback 是浏览器提供的用于在主线程空闲时
+    执行低优先级任务的API，有助于优化性能和响应性。
+</p>
+<div id="controls">
+    <button id="startBtn">开始处理1000000个数据项</button>
+    <button id="animateBtn">开始动画</button>
+</div>
+<div id="status">准备就绪</div>
+<div id="progress">
+    <div id="bar"></div>
+</div>
+<script>
+const statusEl = document.getElementById("status");
+const progressBar = document.getElementById('bar');
+const startBtn = document.getElementById('startBtn');
+const animateBtn = document.getElementById('animateBtn');
+const animation = document.getElementById('animation');
+
+let dataItems = [];
+for (let i = 0; i < 1000000; i++) {
+    dataItems.push({
+        id: 1,
+        value: Math.random() * 100
+    })
+}
+// 分批执行 unit 单位时间， 单位任务
+// idle 一下
+
+let processedItems = 0;
+let isProcessing = false;
+let startTime;
+
+startBtn.addEventListener('click', () => {
+    if (!isProcessing) {
+        isProcessing = true; // 开关变量
+        // = arr.length 执行完了，停下来
+        processedItems = 0;// 初始化已经处理的条目数
+        // 性能优化api  表现 统计时长
+        // 用于页面性能的衡量
+        startTime = performance.now();
+        statusEl.textContent = '处理中...';
+        // 如果没有其他任务，开局即空闲
+        // 低姿态 可以被中断
+        requestIdleCallback(processDataChunk, {
+            timeout: 5000
+        })
+    }
+});
+
+function processItem(item) {
+    // 同步代码，耗时间
+    let result = 0;
+    for (let i = 0; i < 5000; i++) {
+        result += Math.sqrt(item.value) * Math.sin(i)
+    }
+    return result;
+}
+
+function processDataChunk(deadline) {
+    // console.log(deadline)
+    // 剩余可执行时间
+    while(
+            deadline.timeRemaining() > 0 
+            && processedItems < dataItems.length
+            && isProcessing
+    ) {
+        processItem(dataItems[processedItems]);
+        // 标记 下一次任务的开始执行的地方
+        // 即中断
+        // 之后又可以继续
+        processedItems++;
+        const progress = Math.floor((processedItems / dataItems.length)*100);
+        progressBar.style.width = progress + '%';
+        statusEl.textContent = `已处理
+        ${processedItems}/${dataItems.length} (${progress})`;
+    }
+    console.log('/////', processedItems);
+    if (processedItems < dataItems.length && isProcessing) {
+        requestIdleCallback(processDataChunk)
+    } else if (isProcessing) {
+        const endTime = performance.now();
+        const totalTime = (endTime - startTime).toFixed(2);
+        statusEl.textContent = `完成！处理了${processedItems}个项目，
+        耗时${totalTime}ms
+        `
+        isProcessing = false;
+    }
+}
+
+</script>
+</body>
+</html>

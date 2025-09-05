@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>requestAnimationFrame</title>
+    <style>
+    .progress-bar {
+        width: 0;
+        height: 10vh;
+        background-color: green;
+    }
+    </style>
+</head>
+<body>
+<h1>requestAnimationFrame</h1>
+<p>
+    更重要更优先的 用户交互
+    用于动画
+    不是一直执行的，1s 执行60次
+    16.67ms
+</p>
+<div id="bar" class="progress-bar"></div>
+<button id="start">开始时间</button>
+<script>
+const btn = document.getElementById('start');
+const bar = document.getElementById('bar');
+let start = 0;
+let allInterval = [];
+const progress = () => {
+    // 触发回流 布局相关
+    bar.style.width = bar.offsetWidth + 1 + 'px';
+    requestAnimationFrame(progress);
+    
+}
+btn.addEventListener('click', () => {
+    bar.style.width = 0;
+    let current = Date.now();
+    start = current;
+    requestAnimationFrame(progress);
+    console.log(allInterval);
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手写Promise.all</title>
+</head>
+<body>
+<script>
+// Promise 状态有3个 pengding, fullfilled, rejected
+// pengding -> fullfilled/rejected 
+// 且不可再改变
+Promise.MyAll = function(promises) {
+    let arr = []; // 结果数组
+    let count = 0; // 计数器
+    return new Promise((resolve, reject) => {
+        // resolve->all  promises 所有都resolve 才能调用
+        // 如果promises[i]不是promise怎么办？ Promise.resolve()
+        promises.forEach((item, i) => {
+            // 里面变promise 
+            Promise.resolve(item).then(res => {
+                arr[i] = res
+                count += 1
+                if (count === promise.length) resolve(arr)
+            }).catch(reject)
+        })
+    })
+}
+</script>
+</body>
+</html>

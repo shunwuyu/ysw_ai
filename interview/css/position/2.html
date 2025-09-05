@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sticky 表格标题吸顶示例</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* 表格容器，设置滚动区域（可选） */
+    .table-container {
+      height: 300px; /* 模拟滚动区域 */
+      overflow-y: auto;
+      border: 1px solid #ccc;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+    }
+
+    /* 表头样式：关键在这里使用 sticky */
+    /* <th> 元素在滚动过程中，距离其最近的具有滚动机制的祖先容器的  */
+    thead th {
+      position: sticky; 
+      top: 0; 
+      /* 当滚动到距离视口顶部 0px 时，开始吸顶 */
+   
+      background-color: #007bff; /* 蓝色背景 */
+      color: white;
+      padding: 12px;
+      text-align: left;
+      z-index: 10; /* 确保在其他内容之上 */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 可选：增加层次感 */
+    }
+
+    tbody td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:hover {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>滚动时表头吸顶示例</h2>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>年龄</th>
+          <th>城市</th>
+          <th>职业</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 重复多行数据以产生滚动 -->
+        <tr><td>张三</td><td>28</td><td>北京</td><td>工程师</td></tr>
+        <tr><td>李四</td><td>32</td><td>上海</td><td>设计师</td></tr>
+        <tr><td>王五</td><td>25</td><td>广州</td><td>产品经理</td></tr>
+        <tr><td>赵六</td><td>30</td><td>深圳</td><td>前端开发</td></tr>
+        <tr><td>钱七</td><td>27</td><td>杭州</td><td>数据分析师</td></tr>
+        <tr><td>孙八</td><td>35</td><td>成都</td><td>架构师</td></tr>
+        <tr><td>周九</td><td>29</td><td>武汉</td><td>测试工程师</td></tr>
+        <tr><td>吴十</td><td>31</td><td>南京</td><td>运维</td></tr>
+        <tr><td>郑一</td><td>26</td><td>西安</td><td>UI设计师</td></tr>
+        <tr><td>陈二</td><td>33</td><td>重庆</td><td>项目经理</td></tr>
+        <tr><td>冯三</td><td>24</td><td>长沙</td><td>实习生</td></tr>
+        <tr><td>朱四</td><td>36</td><td>天津</td><td>技术总监</td></tr>
+        <tr><td>秦五</td><td>28</td><td>青岛</td><td>后端开发</td></tr>
+        <tr><td>何六</td><td>30</td><td>大连</td><td>全栈开发</td></tr>
+        <tr><td>许七</td><td>27</td><td>厦门</td><td>移动开发</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
