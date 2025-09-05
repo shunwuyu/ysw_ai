@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+const p1 = Promise.resolve('p1');
+const p2 = new Promise((resolve, reject) => (
+    setTimeout(() => {
+        resolve('p2 延时一秒')
+    }, 1000)
+))
+const p3 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('p3 延时一秒')
+    }, 2000)
+})
+const p4 = Promise.reject('p4 rejected');
+const p5 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject('p5 rejected 延时1秒')
+    }, 1500)
+})
+
+// Promise.race([p4, p2, p3])
+//     .then(res => console.log(res))
+//     .then(err => console.log(err))
+// Promise.race([p5, p2, p3])
+//     .then(res => console.log(res))
+//     .catch(err => console.log(err))
+// Promise.any([p4, p5])
+//     .then(res => console.log(res))
+//     .catch(err => console.log(err))
+Promise.allSettled([p1, p2, p4])
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+</script>
+</body>
+</html>

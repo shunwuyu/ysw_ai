@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fixed bug</title>
+    <style>
+    body {
+        margin: 0;
+        height: 200vh;
+        padding: 20px;
+        font-family: Arial;
+    }
+    .scroll-container {
+        width: 300px;
+        height: 400px;
+        margin: 50px auto;
+        border: 2px solid #007bff;
+        overflow-y: auto;
+        transform: translateZ(0);
+    }
+    .content {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 100px;
+        height: 50px;
+        background: red;
+        color:white;
+        text-align: center;
+        line-height: 50px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+    </style>
+</head>
+<body>
+    <h3>fixed 被transform容器限制实例</h3>
+    <p>滚动蓝色框， 观察红色块是否固定</p>
+    <div class="scroll-container">
+        <div class="content">
+            <div class="fixed-box">Fixed</div>
+            <p>滚动我...</p>
+        </div>
+    </div>
+</body>
+</html>

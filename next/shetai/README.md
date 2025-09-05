@@ -1,0 +1,2 @@
+- npx shadcn@latest init
+- meta 

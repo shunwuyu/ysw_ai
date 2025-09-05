@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1px 问题</title>
+    <style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: white;
+        position: relative;
+        outline: 1px solid red;
+    }
+    .box::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 10px;
+        background-color: black;
+        transform: scaleY(0.5);
+        transform-origin: center bottom;
+    }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>

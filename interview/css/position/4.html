@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>高性能 Transform 动画</title>
+  <style>
+    .container {
+      padding: 100px;
+    }
+
+    .card {
+      width: 200px;
+      height: 120px;
+      background: linear-gradient(45deg, #007bff, #00d8ff);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+      /* 关键：创建独立合成图层，启用 GPU 加速 */
+      position: relative;
+      transform: translateZ(0);
+      /* 或使用：transform: translate3d(0, 0, 0); */
+      will-change: transform;
+
+      /* 动画使用 transform + opacity，不会触发重排重绘 */
+      transition: transform 0.4s ease-out;
+    }
+
+    /* 鼠标悬停时平移并轻微放大 */
+    .container:hover .card {
+      transform: translateX(100px) scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="card"></div>
+  </div>
+
+</body>
+</html>
