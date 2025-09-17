@@ -1,0 +1,41 @@
+{
+  "name": "phone-gap",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "seed": "ts-node --esm seed.ts",
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start"
+  },
+  "dependencies": {
+    "puppeteer": "^24.10.0",
+    "@ai-sdk/openai": "^1.3.22",
+    "@ai-sdk/react": "1.2.12",
+    "@langchain/community": "0.3.45",
+    "@langchain/core": "^0.3.57",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@supabase/supabase-js": "^2.50.0",
+    "ai": "^4.3.16",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "dotenv": "^16.5.0",
+    "langchain": "^0.3.27",
+    "lucide-react": "^0.513.0",
+    "next": "15.5.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-markdown": "^10.1.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
+    "tw-animate-css": "^1.3.8",
+    "typescript": "^5"
+  }
+}
