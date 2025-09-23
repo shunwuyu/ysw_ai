@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Cross Origin Demo</title>
+</head>
+<body>
+  <h1>WebSocket Client</h1>
+  <script>
+  const ws = new WebSocket("ws://localhost:8080/ws");
+  ws.onopen = () => {
+    console.log('Connect to Server');
+    ws.send('Hello from client!');
+  }
+  ws.onmessage = (event) => {
+    console.log(`Received message: ${event.data}`);
+  }
+  ws.onerror = (error) => {
+    console.error('WebSocket error:', error);
+  }
+  </script>
+</body>
+</html>

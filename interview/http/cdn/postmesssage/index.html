@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>This is parent window</h1>
+  <input type="text" class="inp" />
+  <button class="send">发送消息到iframe</button>
+  <div class="contents">
+    <p>接收到的消息</p>
+    <ul class="messages"></ul>
+  </div>
+  <iframe 
+  height="600"
+  width="800"  
+  src="child.html" frameborder="3" class="child-iframe">
+  </iframe>
+  <script>
+  const win = document.querySelector('.child-iframe').contentWindow;
+  document.querySelector('.send').addEventListener('click', () => {
+    const msg = document.querySelector('.inp').value;
+    win.postMessage(msg, '*'); // access-control-allow-origin
+    document.querySelector('.inp').value = "";
+  })
+  </script>
+</body>
+</html>

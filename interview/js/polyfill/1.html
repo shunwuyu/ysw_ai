@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polyfill</title>
+</head>
+<body>
+<script>
+// polyfill
+if (!window.Promise) {
+  window.Promise = function(executor) {
+    let onResolve;
+    this.then = function(callback) {
+      onResolve= callback;
+      return this;
+    }  
+    const resolve = (value) => {
+      setTimeout(() => onResolve(value));
+    };
+    executor(resolve, null); 
+  }
+}
+</script> 
+</body>
+</html>
